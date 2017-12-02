@@ -15,7 +15,7 @@ h2,h3,h4 {
 	background-color: #transparent;
 }
 .navbar-f {
-	background-color: #5e5d8b;
+	background-color: #34495e;
 }
 
 .bgcolor {
@@ -467,14 +467,14 @@ label {
 }
 
 .navbar-f .navbar-nav > .open > .dropdown-menu {
-	background-color: #403f6f;
+	background-color: #34495e;
 	box-shadow: none;
 	border: none;
 	padding: 3px 4px;
 }
 
 .navbar-f .navbar-nav > .open > .dropdown-menu > li > a {
-	background-color: #403f6f;
+	background-color: #34495e;
 	border-radius: 4px;
 	padding: 6px 10px;
 	color: #fff;

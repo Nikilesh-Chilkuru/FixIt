@@ -1,0 +1,20 @@
+@font-face {
+	font-family: 'Bellota-LightItalic';
+	src: url('../fonts/Bellota-LightItalic.otf');
+}
+
+@font-face {
+	font-family: 'Bellota-BoldItalic';
+	src: url('../fonts/Bellota-BoldItalic.otf');
+}
+
+body {
+	padding-top: 70px;
+}
+
+
+
+::-webkit-scrollbar {
+      width: 15px;
+}
+ 
