@@ -19,7 +19,8 @@
 		// $user_friends_details = mysqli_fetch_array($user_friends_details_query);
 
 
-	} else {
-		header("Location: register.php");
-	}
+	 } 
+	 //else {
+	// 	header("Location: register.php");
+	// }
 ?>

@@ -7,7 +7,7 @@ require 'config/config.php';
 <html>
 <head>
   <title>Welcome <?php if(isset($_SESSION['username'])) echo $_SESSION['username']  ?> !</title>
-
+ 
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,17 +23,18 @@ require 'config/config.php';
     <!-- custom styles for this page -->
     <link href="assets/css/flat-ui.css" rel="stylesheet">
     <link href="assets/css/home_style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />  <!-- for uploading picture -->
     
 
     <!-- script -->
-    <script type="text/javascript" src="assets/Bootstrap/js/bootstrap.js"></script>
-
+    
         <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     
     <!-- Bootstrap core JavaScript-->
     <script type="text/javascript" src="assets/Bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="assets/Bootstrap/js/bootstrap.js"></script>
+
 
 
     <!-- Custom Javascript -->
@@ -54,6 +55,13 @@ require 'config/config.php';
           background-color: #555;
           color: white;
           padding: 15px;
+        }
+        #SignIn_button{
+        	font-size : 12px;
+        	padding : 5px;
+        	margin-top: 11px;
+        	margin-right : 20px;
+        	border-radius:  3px;
         }
     </style>
 
@@ -94,14 +102,30 @@ require 'config/config.php';
                 </form>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><?php if(isset($_SESSION['username'])) echo $_SESSION['username']  ?> <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="profile.php?<?php echo "username=".$_SESSION['username']."&id=".$_SESSION['id']?>"><span class="glyphicon glyphicon-user"></span> My profile</a></li>
-                            <li class="divider"></li>
-                            <li><a href="includes/form_handlers/logout_handler.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                        </ul>
-                    </li>
+                		<?php 
+                			  if(!isset($_SESSION['username'])) {
+                				echo '<a href="register.php"><button type="submit" class="btn btn-success" id ="SignIn_button" name="SignIn_button">Sign In</button><br></a>';
+                			  }
+                				else{
+                					echo 
+                					"
+
+                					<li class='dropdown'>
+			                        <a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>" .
+			                        	  
+			                        		   $_SESSION['username']
+			                        		  . "
+			                        <span class='caret'></span></a>
+			                        <ul class='dropdown-menu'>
+			                            
+			                            <li><a href='includes/form_handlers/logout_handler.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
+			                        </ul>
+			                    </li>
+                					";
+                			}?>
+
+
+                    
                 </ul>
             </div>
         </div>
