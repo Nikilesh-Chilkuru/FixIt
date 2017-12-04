@@ -97,6 +97,7 @@ require 'config/config.php';
                     echo "Contact<span id='contact'></span>"; 
                     ?>
                     </a></li>
+                    
                 </ul>
                 
                 </form>
@@ -108,21 +109,11 @@ require 'config/config.php';
                 			  }
                 				else{
                 					echo 
-                					"
-
-                					<li class='dropdown'>
-			                        <a class='dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>" .
-			                        	  
-			                        		   $_SESSION['username']
-			                        		  . "
-			                        <span class='caret'></span></a>
-			                        <ul class='dropdown-menu'>
-			                            
-			                            <li><a href='includes/form_handlers/logout_handler.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
-			                        </ul>
-			                    </li>
-                					";
-                			}?>
+                					    $_SESSION['username'] . "
+			                         <li><a href='includes/form_handlers/logout_handler.php'>
+                         <span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
+                        ";}
+                        ?>
 
 
                     

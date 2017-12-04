@@ -13,7 +13,9 @@ require 'includes/service/user.php';
 	  <div class="row">
 	    <div class="col-sm-3 scrolldiv">
 	      <div class="box" >					
-		        	<p>User ID: <?php echo $user['username'] ?></p>
+		        	<p> <?php 
+		        	if(isset($_SESSION['username']))
+		        		echo "User ID:".$user['username'] ?></p>
 		        </a>			   	
 	  	  </div>
 	  	</div>
