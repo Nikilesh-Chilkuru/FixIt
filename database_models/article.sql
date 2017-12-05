@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2017 at 11:08 PM
+-- Generation Time: Dec 05, 2017 at 10:24 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -33,6 +33,7 @@ CREATE TABLE `article` (
   `service_type` varchar(30) NOT NULL,
   `service_title` varchar(100) NOT NULL,
   `content` text NOT NULL,
+  `posted_userId` int(11) NOT NULL,
   `posted_user` varchar(30) NOT NULL,
   `reputaion` int(11) NOT NULL DEFAULT '1',
   `date_posted` datetime NOT NULL

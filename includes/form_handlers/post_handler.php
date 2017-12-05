@@ -1,22 +1,24 @@
 <?php 
-	// require '../../config/config.php';
-	// require '../service/post.php';
+	require '../../config/config.php';
+	require '../service/article.php';
 
-	// if (isset($_POST['home_post'])) {
-	// 	//store post
-	// 	$user_id = $_SESSION['id'];
-	// 	$username = $_SESSION['username'];
-	// 	$body = $_POST['home_post'];
-	// 	$post_obj = new post($con, $user_id);
-	// 	$post_obj->submitPost($body);
+	if (isset($_POST['article_button'])) {
+		//store post
+		$user_id = $_SESSION['user_id'];
+		$username = $_SESSION['username'];
 
-	// 	header("Location: ../../home.php");
-	// }elseif (isset($_SESSION['Loading'])) {
-	// 	$user_id = $_SESSION['id'];
-	// 	$post_obj = new post($con, $user_id);
-	// 	echo $post_obj->loadAllFriendsPosts($_REQUEST,2);
-	// 	//echo $post_obj->loadAllMyPosts($_REQUEST,1);
-	// }else{
-	// 	header("Location: ../../register.php");
-	// }
+		$body = $_POST['article_post'];
+		$service_type = $_POST['service_type'];
+		$service_title = $_POST['service_title'];
+
+		$post_obj = new article($con, $user_id);
+		$post_obj->submitArticle($body, $service_type, $service_title);
+
+		$_SESSION['service_type'] = "";
+		$_SESSION['service_title'] = "";
+		$_SESSION['content'] = "";
+
+		header("Location: ../../post.php");
+	}
+		
  ?>

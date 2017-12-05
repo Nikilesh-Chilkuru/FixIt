@@ -30,11 +30,11 @@ require 'includes/service/user.php';
 	            	
 	            	<form action="includes/form_handlers/post_handler.php" method="POST">
 	            		<input type="text" name="service_type" placeholder="Service Type" value="<?php if(isset($_SESSION['service_type']))echo $_SESSION['service_type']; ?>" required><br>
-							<input type="text" name="service_title" placeholder="Title" required><br>
+							<input type="text" name="service_title" placeholder="Title" value="<?php if(isset($_SESSION['service_title']))echo $_SESSION['service_title']; ?>" required><br>
 
-	            	   <textarea class="form-control" rows="3" name="home_post" placeholder="Content..." value="<?php if(isset($_SESSION['home_post']))echo $_SESSION['home_post']; ?>" style="resize: none" required></textarea>
+	            	   <textarea class="form-control" rows="3" name="article_post" placeholder="Content..." value="<?php if(isset($_SESSION['article_post']))echo $_SESSION['article_post']; ?>" style="resize: none" required></textarea>
         	  			<br>
-              			<button type="submit" class="btn btn-success btn-f">
+              			<button type="submit" class="btn btn-success btn-f" name="article_button">
                 			<span class="glyphicon glyphicon-ok"></span> Submit
               			</button>
 	            	</form>
