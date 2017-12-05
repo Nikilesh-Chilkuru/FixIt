@@ -36,15 +36,15 @@
 
 // });
 
- $(document).ready(function() {
+ // $(document).ready(function() {
 
- 	var btn = document.getElementById('SignIn_button');
- 	console.log(btn);
-		btn.addEventListener('click', function() {
-			console.log("button clicked");
-		document.location.href = 'register.php';
-		});
+ // 	var btn = document.getElementById('SignIn_button');
+ // 	console.log(btn);
+	// 	btn.addEventListener('click', function() {
+	// 		console.log("button clicked");
+	// 	document.location.href = 'register.php';
+	// 	});
 
- });
+ // });
 
 
