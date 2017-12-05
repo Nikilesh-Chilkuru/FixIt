@@ -17,12 +17,13 @@ require 'config/config.php';
     <link rel="icon" href="../../favicon.ico">
 
     <!-- css including boostrap -->
-    <link href="assets/Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/Bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <!-- custom styles for this page -->
     <link href="assets/css/flat-ui.css" rel="stylesheet">
     <link href="assets/css/home_style.css" rel="stylesheet">
+    
     
 
     <!-- script -->

@@ -533,23 +533,30 @@ label {
 }
 
 .input-group .form-control {
-	height: 34px;
-	background-color: #4e4d73;
+	height: 50px;
+	width: 90%;
+	background-color: #ecf0f1;
 	border-color: transparent;
 	border-radius: 4px;
 	border-right: none;
+	margin-right: 0px;
 }
 
 .icon-search {
 	font-size: 14px;
+}
+.input-group{
+	width : 100%;
 }
 
 .input-group-btn .btn {
 	border: 2px solid transparent;
 	padding-top: 3px;
 	padding-bottom: 5px;
-	background-color: #4e4d73;
+	background-color: #34495e;
 	border-left: none;
+	height: 50px;
+	margin-left: 0px;
 }
 
 /* 当input获取焦点时，分别给form-control  .btn设置样式 */

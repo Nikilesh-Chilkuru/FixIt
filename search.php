@@ -1,12 +1,21 @@
 <?php 
-//require 'config/config.php'; //connect to database
-require 'header.php'; 
-require 'includes/form_handlers/home_handler.php';
+//require 'config/config.php'; //connect to database 
+require 'header.php';
 require 'includes/service/user.php';
+
+
+
+	/*	
+	if(isset($_POST['update_profile'])){
+	header("Location: upload.php");
+	exit;
+	}*/
+
 ?>
   
-<!--body-->
-  	<div class="container text-center">    
+
+
+	<div class="container text-center">    
 	  	<div class="row">
 	    	<div class="col-sm-3 scrolldiv">
 	      		<div class="box" >
