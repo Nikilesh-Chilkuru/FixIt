@@ -31,6 +31,22 @@
 			}
 		}
 
+		//submit my ades
+		public function submitAd($content, $ad_type, $ad_header,$contact_email,$contact_phone){
+			$content = strip_tags($content);
+			$content = mysqli_real_escape_string($this->con,$content);
+			$check_body_empty = preg_replace('/\s+/', '', $content);
+
+			if ($check_body_empty != "") {
+				//insert the post
+				$date_posted = date("Y-m-d H:i:s");
+				$posted_userId = $this->id;
+				$posted_user = $this->user_obj->getUsername();
+				//add a post record to table named posts 
+				mysqli_query($this->con,"insert into ads values('','$ad_type','$posted_userId','$posted_user','$ad_header','$date_posted','$content', '$contact_email', '$contact_phone')"); 
+			}
+		}
+
 		//delete my posts
 		public function deleteMyArticle($request){
 			$postId = $request['postId'];
