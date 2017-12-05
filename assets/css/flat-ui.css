@@ -278,21 +278,21 @@ label {
 /* .btn-success */
 .btn-success {
     color: #fff;
-    background-color: #91d097;
+    background-color: #2ecc71;
 }
 
 .btn-success:hover,
 .btn-success:focus {
     color: #fff;
-    background-color: #9bdea2;
+    background-color: #2ecc71;
 }
 
 .btn-success:active, {
-    background-color: #89c48f;
+    background-color: #2ecc71;
 }
 
 .btn-success:hover:active {
-	background-color: #89c48f;
+	background-color: #2ecc71;
 }
 
 /* .btn-info */

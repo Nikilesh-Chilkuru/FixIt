@@ -7,6 +7,14 @@ require 'includes/service/user.php';
 
 ?>
 
+<style type="text/css">
+	.selectpicker{
+		/*background-color: #34495e;*/
+		border-radius: 2px;
+		margin-left: 15px;
+		padding : 5px 5px;
+	}
+</style>
 <script type="text/javascript" src="assets/js/post.js"></script>
 
 
@@ -32,7 +40,7 @@ require 'includes/service/user.php';
 	          <div class="panel panel-default text-left">
 	          	<div class="box" style="margin-bottom: 0px;">
 
-	          		<select>
+	          		<select class="selectpicker">
             		<option>Post</option>
             		<option value="article">Article</option>
             		<option value="advertisement">Advertisement</option>
