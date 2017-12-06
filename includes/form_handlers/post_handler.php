@@ -35,9 +35,11 @@
 		$post_obj = new article($con, $user_id);
 		$post_obj->submitAd($body, $ad_type, $ad_header,$contact_email,$contact_phone);
 
-		$_SESSION['service_type'] = "";
-		$_SESSION['service_title'] = "";
+		$_SESSION['ad_type'] = "";
+		$_SESSION['ad_header'] = "";
 		$_SESSION['content'] = "";
+		$_SESSION['contact_email'] = "";
+		$_SESSION['contact_phone'] = "";
 
 		header("Location: ../../post.php");
 	}

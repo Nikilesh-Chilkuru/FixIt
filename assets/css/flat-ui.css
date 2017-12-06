@@ -284,15 +284,15 @@ label {
 .btn-success:hover,
 .btn-success:focus {
     color: #fff;
-    background-color: #2ecc71;
+    background-color: #27ae60;
 }
 
 .btn-success:active, {
-    background-color: #2ecc71;
+    background-color: #27ae60;
 }
 
 .btn-success:hover:active {
-	background-color: #2ecc71;
+	background-color: #27ae60;
 }
 
 /* .btn-info */

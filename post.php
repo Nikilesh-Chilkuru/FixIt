@@ -65,7 +65,7 @@ require 'includes/service/user.php';
 	            		<h4 style="margin-top: 0px;"> Post An Advertisement</h4>
 	            		<input type="text" name="ad_type" placeholder="Ad Type" value="<?php if(isset($_SESSION['ad_type']))echo $_SESSION['ad_type']; ?>" required><br>
 					    <input type="text" name="ad_header" placeholder="Title" value="<?php if(isset($_SESSION['ad_header']))echo $_SESSION['ad_header']; ?>" required><br>
-					    <input type="text" name="contact_mail" placeholder="Contact Email" value="<?php if(isset($_SESSION['contact_mail']))echo $_SESSION['contact_mail']; ?>" required><br>
+					    <input type="email" name="contact_email" placeholder="Contact Email" value="<?php if(isset($_SESSION['contact_email']))echo $_SESSION['contact_email']; ?>" required><br>
 					    <input type="text" name="contact_phone" placeholder="Phone No" value="<?php if(isset($_SESSION['contact_phone']))echo $_SESSION['contact_phone']; ?>" required><br>
 
 	            	   <textarea class="form-control" rows="3" name="ad_post" placeholder="Content..." value="<?php if(isset($_SESSION['ad_post']))echo $_SESSION['ad_post']; ?>" style="resize: none" required></textarea>
