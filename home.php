@@ -11,7 +11,9 @@ require 'includes/service/user.php';
 	    	<div class="col-sm-3 scrolldiv">
 	      		<div class="box" >
 					
-			   		
+			   		<p> <?php
+		        	if(isset($_SESSION['username']))
+		        		echo "User <br>".$user['username'] ?></p>
 	  	  		</div>
 	      
 	    	</div>

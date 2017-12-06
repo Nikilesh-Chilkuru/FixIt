@@ -28,7 +28,7 @@ require 'includes/service/user.php';
 	      <div class="box" >
 		        	<p> <?php
 		        	if(isset($_SESSION['username']))
-		        		echo "User ID:".$user['username'] ?></p>
+		        		echo "User <br>".$user['username'] ?></p>
 		        </a>
 	  	  </div>
 	  	</div>

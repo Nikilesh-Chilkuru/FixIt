@@ -1,15 +1,11 @@
 <?php 
 //require 'config/config.php'; //connect to database 
 require 'header.php';
+require 'includes/form_handlers/home_handler.php';
 require 'includes/service/user.php';
 
 
 
-	/*	
-	if(isset($_POST['update_profile'])){
-	header("Location: upload.php");
-	exit;
-	}*/
 
 ?>
   
@@ -19,7 +15,9 @@ require 'includes/service/user.php';
 	  	<div class="row">
 	    	<div class="col-sm-3 scrolldiv">
 	      		<div class="box" >
-					
+					<p> <?php
+		        	if(isset($_SESSION['username']))
+		        		echo "User <br>".$user['username'] ?></p>
 			   		
 	  	  		</div>
 	      
@@ -55,7 +53,7 @@ require 'includes/service/user.php';
 
 
 	    	<div class="col-sm-2">
-	    	<div class='box friends_list_area'>
+	    	<div class='box'>
 	    		<p>About</p>
 	    		
 	    	</div>
