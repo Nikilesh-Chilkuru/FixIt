@@ -25,19 +25,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ads`
+-- Table structure for table `query`
 --
 
-CREATE TABLE `ads` (
-  `ad_id` int(11) NOT NULL,
-  `ad_type` varchar(30) NOT NULL,
+CREATE TABLE `query` (
+  `query_id` int(11) NOT NULL,
   `posted_userId` int(11) NOT NULL,
   `posted_user` varchar(30) NOT NULL,
-  `ad_header` varchar(100) NOT NULL,
-  `date_posted` datetime NOT NULL,
-  `content` text NOT NULL,
+  `query_title` varchar(80) NOT NULL,
   `contact_email` varchar(30) NOT NULL,
-  `contact_phone` varchar(15) NOT NULL
+  `query` text NOT NULL,
+  `date_posted` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -45,20 +43,20 @@ CREATE TABLE `ads` (
 --
 
 --
--- Indexes for table `ads`
+-- Indexes for table `query`
 --
-ALTER TABLE `ads`
-  ADD PRIMARY KEY (`ad_id`);
+ALTER TABLE `query`
+  ADD PRIMARY KEY (`query_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `ads`
+-- AUTO_INCREMENT for table `query`
 --
-ALTER TABLE `ads`
-  MODIFY `ad_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `query`
+  MODIFY `query_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
