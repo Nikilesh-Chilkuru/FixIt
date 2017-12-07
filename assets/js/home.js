@@ -1,50 +1,73 @@
-// //for delete or modify posts
-// $(document).ready(function() {
-// 	//for post deletion
-	
-
-// 	//for adding likes
-	
-// 	//for adding each comment in .comment area
-	
-// 	//for comment deletion
-	
-// 	//for search ajax
-// 	$("nav #searchInput").keyup(function(){
-// 		var searchedUsername = this.value;
-// 		searchedUsername = $.trim(searchedUsername);
-// 		if (searchedUsername == '') {
-// 			$("nav").find('.search_result_ajax').hide('slow','swing');
-// 		}else{
-// 			$("nav").find('.search_result_ajax').show('slow','swing');
-			
-// 			$.ajax({
-// 				url: "includes/form_handlers/search_handler.php",
-// 				type: "POST",
-// 				data: "searchRegisteredUserAjax=true"+
-// 					  "&searchedUsername="+searchedUsername,
-// 				cache: false,
-
-// 				success: function(returnedData) {
-// 					$("nav").find('.search_result_ajax').empty();
-// 					$("nav").find('.search_result_ajax').append(returnedData);
-// 				}
-// 			});
-// 		}
-// 	});
+ //  $(document).ready(function(){
 
 
-// });
 
- // $(document).ready(function() {
+ //         easy_questions = [];
+ //         medium_questions = [];
+ //         hard_questions = [];
+ //         var score = 0;
 
- // 	var btn = document.getElementById('SignIn_button');
- // 	console.log(btn);
-	// 	btn.addEventListener('click', function() {
-	// 		console.log("button clicked");
-	// 	document.location.href = 'register.php';
-	// 	});
+ //        $.ajax({
+ //              url      : 'includes/.php',
+ //              method   : 'post',
+ //              data     : {id: 6},
+ //              datatype : "JSON",
+ //              success  : function(data){
+ //                            // now update user record in table
+ //                    console.log(data);
+ //                    var itemData = $.parseJSON(data);
+
+ //                    $.each(itemData, function(index) {
+ //                        var que_id = parseInt(itemData[index].question_id);
+ //                        var que_level = itemData[index].level;
+
+
+ //                        if(que_level === "easy"){
+ //                          easy_questions.push(que_id);
+ //                        }
+ //                        else if(que_level === "medium"){
+ //                            medium_questions.push(que_id);
+ //                        }
+ //                        else{
+ //                            hard_questions.push(que_id);
+ //                        }
+
+ //                     });
+
+
+ //                    for (var i = easy_questions.length - 1; i > 0; i--) {
+ //                        var j = Math.floor(Math.random() * (i + 1));
+ //                        var temp = easy_questions[i];
+ //                        easy_questions[i] = easy_questions[j];
+ //                        easy_questions[j] = temp;
+ //                    }
+
+ //                    for (var i = medium_questions.length - 1; i > 0; i--) {
+ //                        var j = Math.floor(Math.random() * (i + 1));
+ //                        var temp = medium_questions[i];
+ //                        medium_questions[i] = medium_questions[j];
+ //                        medium_questions[j] = temp;
+ //                    }
+
+
+ //                    for (var i = hard_questions.length - 1; i > 0; i--) {
+ //                        var j = Math.floor(Math.random() * (i + 1));
+ //                        var temp = hard_questions[i];
+ //                        hard_questions[i] = hard_questions[j];
+ //                        hard_questions[j] = temp;
+ //                    }
+
+
+
+ //                    console.log(easy_questions.length );
+ //                    console.log(medium_questions.length );
+ //                    console.log(hard_questions.length );
+
+
+ //              },
+ //              async: false // <- this turns it into synchronous
+ //          });
+ 
 
  // });
-
 

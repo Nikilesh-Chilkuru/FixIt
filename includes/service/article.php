@@ -53,6 +53,10 @@
 			mysqli_query($this->con,"update article set deleted = 'yes' where id = '$postId'");
 		}
 
+		public function getArticles(){
+			
+		}
+
 		// //load only my posts
 		// public function loadAllMyPosts($request, $pageSize){
 		// 	//get the current page number
