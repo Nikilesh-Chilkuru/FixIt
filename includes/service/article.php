@@ -53,8 +53,20 @@
 			mysqli_query($this->con,"update article set deleted = 'yes' where id = '$postId'");
 		}
 
-		public function getArticles(){
-			
+		public function submitArticleReview($request){
+			$article_id = $request['article_id'];
+			$review = $request['review'];
+			$review = strip_tags($review);
+			$review = mysqli_real_escape_string($this->con,$review);
+			$check_body_empty = preg_replace('/\s+/', '', $review);
+
+			if ($check_body_empty != "") {
+				//insert the post
+				$review_posted_userId = $this->id;
+				$review_posted_username = $this->user_obj->getUsername();
+				//add a post record to table named posts 
+				mysqli_query($this->con,"insert into article_reviews values('','$article_id','$review_posted_userId','$review_posted_username','$review')"); 
+			}
 		}
 
 		// //load only my posts

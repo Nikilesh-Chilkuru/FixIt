@@ -82,6 +82,12 @@ require 'config/config.php';
             margin-bottom: 10px;
          }
 
+         .load_reviews{
+            margin: 10px 0px;
+            /*position: fixed;
+            float: left;*/
+         }
+
     </style>
 
 </head>
