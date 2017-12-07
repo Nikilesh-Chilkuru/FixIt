@@ -18,7 +18,7 @@ require 'includes/service/user.php';
 		        		echo "User <br>".$user['username'] ?></p>
 
 		          <div >
-               		<select class="selectpicker">
+               		<select class="selectpicker" id="select_postType">
             		<option>Show</option>
             		<option value="article">Articles</option>
             		<option value="advertisement">Advertisement</option>

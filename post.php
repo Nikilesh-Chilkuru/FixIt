@@ -54,7 +54,7 @@ require 'includes/service/user.php';
 
 	            	<div class="panel-body ad_class">
 
-	            			<form action="includes/form_handlers/post_handler.php" method="POST">
+	            		<form action="includes/form_handlers/post_handler.php" method="POST">
 	            		<h4 style="margin-top: 0px;"> Post An Advertisement</h4>
 	            		<input type="text" name="ad_type" placeholder="Ad Type" value="<?php if(isset($_SESSION['ad_type']))echo $_SESSION['ad_type']; ?>" required><br>
 					    <input type="text" name="ad_header" placeholder="Title" value="<?php if(isset($_SESSION['ad_header']))echo $_SESSION['ad_header']; ?>" required><br>

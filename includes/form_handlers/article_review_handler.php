@@ -12,6 +12,7 @@
 
 			$article_obj->submitArticleReview($_REQUEST);
 		 	echo "success";
+		 	header("Location: ../../home.php");
 		} 
 		else {
 			echo "<p>Please enter the content!</p>";

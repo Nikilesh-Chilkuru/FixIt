@@ -114,10 +114,21 @@
 		console.log(review);	
 		// if <p> exists before <form></form> delete it
 		//$this.parent().prevAll('p').remove();
+
+		var option = $("#select_postType option:selected").val();
+		
+		//console.log("abc"+option);
+		if(option == "Show"){
+			option = "article";
+		}
+
+	            
+	            
 		$.ajax({
 				url: "includes/form_handlers/article_review_handler.php",
 				type: "POST",
-				data: "article_id="+article_id+
+				data: "post_type="+option+
+				      "&article_id="+article_id+
 					  "&review="+review,
 				cache: false,
 
@@ -131,6 +142,8 @@
 					// 	$this.parent().parent().next().append(returnedData);
 					// }
 					console.log(returnedData);
+					location.reload();
+
 				}
 		});
 		return false;
@@ -149,18 +162,26 @@
 
 		var value = article_id;
 		console.log(value);
+
+		var option = $("#select_postType option:selected").val();
+		
+		//console.log("abc"+option);
+		if(option == "Show"){
+			option = "article";
+		}
 		// if <p> exists before <form></form> delete it
 		//$this.parent().prevAll('p').remove();
 		$.ajax({
 				url: "includes/form_handlers/load_reviews.php",
 				type: "POST",
-				data: "article_id="+article_id,
+				data: "post_type="+option+
+				      "&article_id="+article_id,
 				cache: false,
 
 				success: function(returnedData) {
 					var itemData = $.parseJSON(returnedData);
 		            var reviewsHtml = "";
-		            console.log(itemData);
+		            // console.log(itemData);
 
 		            for(var i=0; i < itemData.length; i++) {
 		            		 reviewsHtml += "<div class = 'box'>";
@@ -176,19 +197,9 @@
 		return false;
 	});
 
-		$(".load_posts").click(function(){
+		
+	
 
-				var reviewsHtml = "";
 
-	            $.ajax({
-	                type: 'POST',
-	                url: 'includes/form_handlers/load_reviews.php',
-	                success: function(data) {
-	                    //alert(data);
-	                    $('.put_reviews').empty().append(reviewsHtml);
 
-	                }
-	            });
-	   });
-
-	});
+});
