@@ -34,12 +34,12 @@ require 'includes/service/user.php';
 	    	<!-- Modal : for posting something-->
 	    	<div class="col-sm-7">
 	    		
-	    	   <form action="includes/form_handlers/search_handler.php" class="navbar-form" role="search">
-                    <div class="form-group input-group">
-                        <input type="search" id="searchInput" class="form-control" placeholder="Search..">
+	    	   <!-- <form action="includes/form_handlers/search_handler.php" class="navbar-form" role="search"> -->
+                    <div class="form-group input-group search_class">
+                        <input type="search" id="searchInput" class="form-control" placeholder="Search.." value = '' required>
 
-                        <span class="input-group-btn">
-                          <button class="btn" type="submit" style="margin-left: -25px;">  <!-- change made -->
+                        <span class="input-group-btn searh_span">
+                          <button class="btn search_btn" type="submit" style="margin-left: -90px;">  <!-- change made -->
                             <span class="icon-search"></span>
                           </button>
                         </span>
@@ -47,7 +47,7 @@ require 'includes/service/user.php';
                     
 
                     
-               </form>
+               <!-- </form> -->
 
                
 	    		<div class="posts_area">
