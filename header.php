@@ -88,6 +88,11 @@ require 'config/config.php';
             float: left;*/
          }
 
+         .about P{
+            color: deepskyblue;
+            text-align: -webkit-left;
+         }
+
     </style>
 
 </head>

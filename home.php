@@ -7,7 +7,6 @@ require 'includes/service/user.php';
   
 <!--body-->
 
-</style>
   	<div class="container text-center">    
 	  	<div class="row">
 	    	<div class="col-sm-3 scrolldiv">
@@ -66,6 +65,12 @@ require 'includes/service/user.php';
 	    	<div class="col-sm-2">
 	    	<div class='box friends_list_area'>
 	    		<p>About</p>
+
+	    		<div class = "about">
+	    			<p>Fixit is a wiki-based site that teaches people how to fix almost anything. Anyone can create a repair manual for a device, and anyone can also edit the existing set of manuals to improve them. Our site empowers individuals to share their technical knowledge with the rest of the world.</p>
+
+                   <p style="color: red;"> So what are you waiting for?</p>
+	    		</div>
 	    		
 	    	</div>
 	    </div>
