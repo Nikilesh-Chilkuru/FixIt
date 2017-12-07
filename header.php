@@ -139,7 +139,7 @@ require 'config/config.php';
                 			  }
                 				else{
                 					echo 
-                					    $_SESSION['username'] . "
+                					    "<span style = 'color: red;'>".$_SESSION['username'] . "</span>
 			                         <li><a href='includes/form_handlers/logout_handler.php'>
                          <span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
                         ";}
