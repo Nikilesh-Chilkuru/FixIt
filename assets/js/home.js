@@ -2,8 +2,10 @@
 		 $(document).ready(function(){
 
 		 	var reviewHtml = "<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
-		            	"<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button>"+
-		            	"<button type='button' class='btn btn-danger load_reviews' style='display:inline-block'>Show Reviews</button>"+
+		            	"<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
+		            	"<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
+		            
+		            	"<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
 		            	"</form><div class = 'put_reviews'></div>";
 
 		            	console.log(reviewHtml);
