@@ -9,7 +9,12 @@ require 'includes/service/user.php';
 
 ?>
   
-
+<style type="text/css">
+	.checkbox{
+		/*float: inline-start;*/
+		margin-right : 100%;
+	}
+</style>
 
 	<div class="container text-center">    
 	  	<div class="row">
@@ -62,8 +67,21 @@ require 'includes/service/user.php';
 
 	    	<div class="col-sm-2">
 	    	<div class='box'>
-	    		<p>About</p>
-	    		
+	    		<h4> Filter By</h4>
+
+	    		    <div class="checkbox">
+					 <label><input type="checkbox" value="">Date_Posted</label>
+					</div>
+					<div class="checkbox">
+					  <label><input type="checkbox" value="">Reviews</label>
+					</div>
+					<div class="checkbox ">
+					  <label><input type="checkbox" value="" disabled>Upvotes</label>
+					</div>
+					<div class="checkbox ">
+					  <label><input type="checkbox" value="" disabled>Reputation</label>
+					</div>
+						    		
 	    	</div>
 	    </div>
 	  </div>
