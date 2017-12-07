@@ -18,6 +18,14 @@ require 'includes/service/user.php';
 					<p> <?php
 		        	if(isset($_SESSION['username']))
 		        		echo "User <br>".$user['username'] ?></p>
+
+		        	<div >
+	               		<select class="selectpicker">
+	            		<option>Show</option>
+	            		<option value="article">Articles</option>
+	            		<option value="advertisement">Advertisement</option>
+	        			</select>
+               	  </div>
 			   		
 	  	  		</div>
 	      

@@ -1,73 +1,83 @@
- //  $(document).ready(function(){
+
+		 $(document).ready(function(){
+
+			load_articles_update();
+
+			function load_articles_update(){
+
+				console.log("function called")
+				$.ajax({
+					url: "includes/form_handlers/load_posts_update_handler.php",
+		            type: "GET",
+		            
+		            success : function(data) {
+		            	var itemData = $.parseJSON(data);
+		            	var postsHtml = "";
+		            	//console.log(itemData);
+		            	for(var i=0; i < itemData.length; i++) {
+		            		 postsHtml += "<div class = 'box'>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Service Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].service_type + "</p>";
+				             postsHtml += "<p class = 'post_tags'><span class = 'labels'> Service Title </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].service_title + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>";
+				          	 postsHtml += "</div>"; 
+					        //console.log(itemData[i].service_type);
+					    }
+		               $('.posts_area').empty().append(postsHtml);
+		               }
+				
+				});
+				 
+			}
+
+			function load_ads_update(){
+
+				console.log("function called")
+				$.ajax({
+					url: "includes/form_handlers/load_ads_update_handler.php",
+		            type: "GET",
+		            
+		            success : function(data) {
+		            	var itemData = $.parseJSON(data);
+		            	var postsHtml = "";
+		            	console.log(itemData);
+		            	for(var i=0; i < itemData.length; i++) {
+		            		 postsHtml += "<div class = 'box'>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Ad Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].ad_type + "</p>";
+				             postsHtml += "<p class = 'post_tags'><span class = 'labels'> Ad Title </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].ad_header + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>"
+				          	 postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Contact Email </span>  <span class= 'glyphicon  glyphicon-envelope'></span>  " + itemData[i].contact_email + "</p>";
+				          	 postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Contact Phone </span>  <span class= 'glyphicon  glyphicon-phone'></span>  " + itemData[i].contact_phone + "</p>";
+				          	 postsHtml += "</div>"; 
+					        //console.log(itemData[i].service_type);
+					    }
+		               $('.posts_area').empty().append(postsHtml);
+		               }
+				
+				});
+				 
+			}
 
 
 
- //         easy_questions = [];
- //         medium_questions = [];
- //         hard_questions = [];
- //         var score = 0;
+          // setInterval('load_posts_update()', 1000); // refresh div after 1 secs
 
- //        $.ajax({
- //              url      : 'includes/.php',
- //              method   : 'post',
- //              data     : {id: 6},
- //              datatype : "JSON",
- //              success  : function(data){
- //                            // now update user record in table
- //                    console.log(data);
- //                    var itemData = $.parseJSON(data);
+			// 
 
- //                    $.each(itemData, function(index) {
- //                        var que_id = parseInt(itemData[index].question_id);
- //                        var que_level = itemData[index].level;
+		$("select").change(function(){
+	        $(this).find("option:selected").each(function(){
+	            var optionValue = $(this).attr("value");
+	            if(optionValue == "article"){
+					console.log("article selected");
+	                load_articles_update();
+	            } else if(optionValue == "advertisement"){
+					console.log("Ad selected");
+	            	load_ads_update();
+	            }
+	        });
+	    }).change();
+			
+	console.log("hi");
 
-
- //                        if(que_level === "easy"){
- //                          easy_questions.push(que_id);
- //                        }
- //                        else if(que_level === "medium"){
- //                            medium_questions.push(que_id);
- //                        }
- //                        else{
- //                            hard_questions.push(que_id);
- //                        }
-
- //                     });
-
-
- //                    for (var i = easy_questions.length - 1; i > 0; i--) {
- //                        var j = Math.floor(Math.random() * (i + 1));
- //                        var temp = easy_questions[i];
- //                        easy_questions[i] = easy_questions[j];
- //                        easy_questions[j] = temp;
- //                    }
-
- //                    for (var i = medium_questions.length - 1; i > 0; i--) {
- //                        var j = Math.floor(Math.random() * (i + 1));
- //                        var temp = medium_questions[i];
- //                        medium_questions[i] = medium_questions[j];
- //                        medium_questions[j] = temp;
- //                    }
-
-
- //                    for (var i = hard_questions.length - 1; i > 0; i--) {
- //                        var j = Math.floor(Math.random() * (i + 1));
- //                        var temp = hard_questions[i];
- //                        hard_questions[i] = hard_questions[j];
- //                        hard_questions[j] = temp;
- //                    }
-
-
-
- //                    console.log(easy_questions.length );
- //                    console.log(medium_questions.length );
- //                    console.log(hard_questions.length );
-
-
- //              },
- //              async: false // <- this turns it into synchronous
- //          });
- 
-
- // });
-
+	});

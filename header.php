@@ -73,6 +73,15 @@ require 'config/config.php';
             color:lightseagreen;
             font-size: 1.1em;
         }
+
+        .selectpicker{
+        /*background-color: #34495e;*/
+            border-radius: 2px;
+            margin-left: 15px;
+            padding : 5px 5px;
+            margin-bottom: 10px;
+         }
+
     </style>
 
 </head>

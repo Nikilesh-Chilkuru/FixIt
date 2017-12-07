@@ -7,14 +7,7 @@ require 'includes/service/user.php';
 
 ?>
 
-<style type="text/css">
-	.selectpicker{
-		/*background-color: #34495e;*/
-		border-radius: 2px;
-		margin-left: 15px;
-		padding : 5px 5px;
-	}
-</style>
+
 <script type="text/javascript" src="assets/js/post.js"></script>
 
 
@@ -47,7 +40,7 @@ require 'includes/service/user.php';
         		</select>
 	              <div class="panel-body article_class">
 
-	            			<form action="includes/form_handlers/post_handler.php" method="POST">
+	            		<form action="includes/form_handlers/post_handler.php" method="POST">
 	            		<h4 style="margin-top: 0px;"> Post An Article</h4>
 	            		<input type="text" name="service_type" placeholder="Service Type" value="<?php if(isset($_SESSION['service_type']))echo $_SESSION['service_type']; ?>" required><br>
 							    <input type="text" name="service_title" placeholder="Title" value="<?php if(isset($_SESSION['service_title']))echo $_SESSION['service_title']; ?>" required><br>
