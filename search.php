@@ -71,55 +71,48 @@ require 'includes/service/user.php';
 
 	
 	<script>
-		$(document).ready(function() {
 
-			$('#loadingIcon').show();
-			<?php $_SESSION['Loading'] = 'true' ?>
-			//ajax request for loading posts 
-			$.ajax({
-				url: "includes/form_handlers/post_handler.php",
-				type: "POST",
-				data: "page=1",
-				cache: false,
+		 $(document).ready(function(){
 
-				success: function(returnedData) {
-					$('#loadingIcon').hide();
-					//add returned date to the post area
-					$('.posts_area').html(returnedData);
-					return false;
-				}
-			});
+			load_posts_update();
 
-			//do it if scroll up or down
-			$(window).scroll(function() {
-				var pageNum = $('.posts_area').find('.nextPage').val();
-				var noMorePosts = $('.posts_area').find('.noMorePosts').val();
-				//if the height of the browser window + scrolled height == total height that can be scorlled
-				if((document.documentElement.scrollHeight == document.documentElement.scrollTop + window.innerHeight) && noMorePosts == 'false') {
-					//start ajax request again
-					$('#loadingIcon').show();
-					$('.posts_area').find('.nextPage').remove(); //Removes current input
-					$('.posts_area').find('.noMorePosts').remove(); //Removes hidden input
-					//do ajax request
-					var ajaxReq = $.ajax({
-						url: "includes/form_handlers/post_handler.php",
-						type: "POST",
-						data: "page="+pageNum,
-						cache: false,
+			function load_posts_update(){
 
-						success: function(returnedData) {
-							$('#loadingIcon').hide();
-							$('.posts_area').append(returnedData);
-						}
-					});
-				}
+				console.log("function called")
+				$.ajax({
+					url: "includes/form_handlers/load_posts_update_handler.php",
+		            type: "GET",
+		            
+		            success : function(data) {
+		            	var itemData = $.parseJSON(data);
 
-				return false;
 
-			}); //End (window).scroll(function())
+		            	var postsHtml = "";
 
+		            	//console.log(itemData);
+		            	for(var i=0; i < itemData.length; i++) {
+		            		 postsHtml += "<div class = 'box'>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Service Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].service_type + "</p>";
+				             postsHtml += "<p class = 'post_tags'><span class = 'labels'> Service Title </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].service_title + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>";
+				          	 postsHtml += "</div>"; 
+					        //console.log(itemData[i].service_type);
+					    }
+		               $('.posts_area').empty().append(postsHtml);
+		               }
+				
+				});
+				 
+			}
+
+          // setInterval('load_posts_update()', 1000); // refresh div after 1 secs
+
+			// 
 			
-		});
+	console.log("hi");
+
+	});
 	</script>
 </body>
 </html>

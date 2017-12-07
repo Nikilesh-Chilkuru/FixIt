@@ -64,6 +64,15 @@ require 'config/config.php';
         	margin-right : 20px;
         	border-radius:  3px;
         }
+        
+        .post_tags{
+            text-align: left;
+        }
+
+       .labels{
+            color:lightseagreen;
+            font-size: 1.1em;
+        }
     </style>
 
 </head>

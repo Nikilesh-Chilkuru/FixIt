@@ -6,15 +6,7 @@ require 'includes/service/user.php';
 ?>
   
 <!--body-->
-<style type="text/css">
-	.post_tags{
-		text-align: left;
-	}
 
-	.labels{
-		color:lightseagreen;
-		font-size: 1.1em;
-	}
 </style>
   	<div class="container text-center">    
 	  	<div class="row">
@@ -97,10 +89,10 @@ require 'includes/service/user.php';
 		            	//console.log(itemData);
 		            	for(var i=0; i < itemData.length; i++) {
 		            		 postsHtml += "<div class = 'box'>";
-				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Service Type : </span>" + itemData[i].service_type + "</p>";
-				             postsHtml += "<p class = 'post_tags'><span class = 'labels'> Service Title : </span>" + itemData[i].service_title + "</p>";
-				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content : </span>" + itemData[i].content + "</p>";
-				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By :</span> " + itemData[i].posted_user + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Service Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].service_type + "</p>";
+				             postsHtml += "<p class = 'post_tags'><span class = 'labels'> Service Title </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].service_title + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
+				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>";
 				          	 postsHtml += "</div>"; 
 					        //console.log(itemData[i].service_type);
 					    }
