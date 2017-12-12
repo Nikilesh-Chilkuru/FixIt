@@ -1,14 +1,14 @@
-<?php 
+<?php
 	require 'user.php';
 	/**
-	* 
+	*
 	*/
-	class article 
+	class article
 	{
 		private $con;
 		private $id;
 		private $user_obj;
-		
+
 		function __construct($con,$id){
 			$this->con = $con;
 			$this->id = $id;
@@ -26,8 +26,8 @@
 				$date_posted = date("Y-m-d H:i:s");
 				$posted_userId = $this->id;
 				$posted_user = $this->user_obj->getUsername();
-				//add a post record to table named posts 
-				mysqli_query($this->con,"insert into article values('','$service_type','$service_title','$content','$posted_userId','$posted_user','1','$date_posted')"); 
+				//add a post record to table named posts
+				mysqli_query($this->con,"insert into article values('','$service_type','$service_title','$content','$posted_userId','$posted_user','1','$date_posted')");
 			}
 		}
 
@@ -42,8 +42,8 @@
 				$date_posted = date("Y-m-d H:i:s");
 				$posted_userId = $this->id;
 				$posted_user = $this->user_obj->getUsername();
-				//add a post record to table named posts 
-				mysqli_query($this->con,"insert into ads values('','$ad_type','$posted_userId','$posted_user','$ad_header','$date_posted','$content', '$contact_email', '$contact_phone')"); 
+				//add a post record to table named posts
+				mysqli_query($this->con,"insert into ads values('','$ad_type','$posted_userId','$posted_user','$ad_header','$date_posted','$content', '$contact_email', '$contact_phone','1')"); 
 			}
 		}
 
@@ -65,8 +65,8 @@
 				//insert the post
 				$review_posted_userId = $this->id;
 				$review_posted_username = $this->user_obj->getUsername();
-				//add a post record to table named posts 
-				mysqli_query($this->con,"insert into article_reviews values('','$post_type','$article_id','$review_posted_userId','$review_posted_username','$review')"); 
+				//add a post record to table named posts
+				mysqli_query($this->con,"insert into article_reviews values('','$post_type','$article_id','$review_posted_userId','$review_posted_username','$review')");
 				//echo ($article_id . " " . $post_type . " ". $review);
 			}
 		}
