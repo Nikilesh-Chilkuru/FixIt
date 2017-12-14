@@ -12,14 +12,14 @@
 
 
     <!-- Bootstrap core CSS     -->
-          <link href="assets/Bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/Bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <!-- custom styles for this page -->
     <link href="assets/css/flat-ui.css" rel="stylesheet">
     <link href="assets/css/home_style.css" rel="stylesheet">
 
- 
+
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />
 
@@ -30,7 +30,7 @@
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    
+
     <!-- Bootstrap core JavaScript-->
     <script type="text/javascript" src="assets/Bootstrap/js/bootstrap.min.js"></script>
 
@@ -46,12 +46,12 @@
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script src="assets/js/flat.js"></script>
-    
+
 
 </head>
 <body>
 
-<style>    
+<style>
         /* Set black background color, white text and some padding */
         footer {
           background-color: #555;
@@ -65,7 +65,7 @@
         	margin-right : 20px;
         	border-radius:  3px;
         }
-        
+
         .post_tags{
             text-align: left;
         }
@@ -106,68 +106,78 @@
     -->
 
 
-        
+
     </div>
 
-    <div class="container text-center">    
+    <div class="container text-center">
 	  	<div class="row">
 	    	<div class="col-sm-3 scrolldiv">
 	      		<div class="box" >
-					
+
 			   		<p> User :</p>
 			   		<p> Admin </p>
 
 		          <div >
-               		<select class="selectpicker" id="select_postType">
-            		<option>See</option>
-            		<option value="article">Articles</option>
-            		<option value="advertisement">Advertisement</option>
-            		<option value="users">Users</option>
-            		<option value="query">Query</option>
-        			</select>
-               	  </div>
+	               	<select class="selectpicker" id="select_postType">
+	            		<option>See</option>
+	            		<option value="article">Articles</option>
+	            		<option value="advertisement">Advertisement</option>
+	            		<option value="users">Users</option>
+	            		<option value="query">Query</option>
+	        			</select>
+              </div>
+
+								<div>
+								<?php
+											echo
+													"
+													 <li><a href='includes/form_handlers/logout_handler.php'>
+										       <span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
+										      ";
+								?>
+								</div>
+
 	  	  		</div>
 
-	  	  		
-	      
+
 	    	</div>
 
 
 
 	    	<!-- Modal : for posting something-->
 	    	<div class="col-sm-7">
-	    		
-	    	 
 
-               
+
+
+
 	    		<div class="posts_area">
-	    			
+
 	    		</div>
-	    		
+
 
 	    	</div>
 
 
 
 
-	    	
+
 	  </div>
 	</div>
 
-	    
+
 	 	 </div>
 	</div>
 
-	
+
 
 </body>
 
-   
+
 
 </body>
 
     <!--   Core JS Files   -->
 
-	
+
 
 </html>

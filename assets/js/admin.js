@@ -9,7 +9,7 @@
 		            	"</form><div class = 'put_reviews'></div>";
 
 		            	console.log(reviewHtml);
- 
+
 
 			load_articles_update();
 
@@ -21,7 +21,7 @@
 				$.ajax({
 					url: "includes/form_handlers/load_posts_update_handler.php",
 		            type: "GET",
-		            
+
 		            success : function(data) {
 		            	var itemData = $.parseJSON(data);
 		            	var postsHtml = "";
@@ -35,14 +35,14 @@
 				          	 postsHtml += "<div class = 'review'>";
 				          	 postsHtml  += reviewHtml;
 				          	 postsHtml += "</div>";
-				          	 postsHtml += "</div>"; 
+				          	 postsHtml += "</div>";
 					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
-				
+
 				});
-				 
+
 			}
 
 			function load_ads_update(){
@@ -51,15 +51,15 @@
 				$.ajax({
 					url: "includes/form_handlers/load_ads_update_handler.php",
 		            type: "GET",
-		            
+
 		            success : function(data) {
 		            	var itemData = $.parseJSON(data);
 		            	var postsHtml = "";
 		            	console.log(itemData);
 
-		            	
- 									
- 								
+
+
+
 		            	for(var i=0; i < itemData.length; i++) {
 		            		 postsHtml += "<div class = 'box' value = '"+ itemData[i].ad_id+"'>";
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Ad Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].ad_type + "</p>";
@@ -71,17 +71,17 @@
 				          	 postsHtml += "<div class = 'review'>";
 				          	 postsHtml += reviewHtml;
 				          	 postsHtml += "</div>";
-				          	 postsHtml += "</div>"; 
+				          	 postsHtml += "</div>";
 					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
-				
+
 				});
-				 
+
 			}
 
-			
+
 
 			function load_users_update(){
 
@@ -89,13 +89,13 @@
 				$.ajax({
 					url: "includes/form_handlers/load_users_update_handler.php",
 		            type: "GET",
-		            
+
 		            success : function(data) {
 		            	var itemData = $.parseJSON(data);
 		            	var postsHtml = "";
 		            	console.log(itemData);
 
-		            	
+
  						var reviewHtml = "<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
 		            	"<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
 		            	"<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
@@ -103,8 +103,8 @@
 		            	"<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
 		            	"</form><div class = 'put_reviews'></div>";
 
-		            	console.log(reviewHtml);			
- 								
+		            	console.log(reviewHtml);
+
 		            	for(var i=0; i < itemData.length; i++) {
 		            		 postsHtml += "<div class = 'box' value = '"+ itemData[i].user_id+"'>";
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>User Name </span><span class= 'glyphicon  glyphicon-user'></span> " + itemData[i].username + "</p>";
@@ -112,20 +112,20 @@
 				             postsHtml += "<div class = 'review'>";
 				          	 postsHtml += reviewHtml;
 				          	 postsHtml += "</div>";
-				          	 postsHtml += "</div>"; 
+				          	 postsHtml += "</div>";
 					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
-				
+
 				});
-				 
+
 			}
-	    			
+
 
           // setInterval('load_posts_update()', 1000); // refresh div after 1 secs
 
-			// 
+			//
 
 		$("select").change(function(){
 	        $(this).find("option:selected").each(function(){
@@ -154,25 +154,25 @@
 
 
 	//To post a review
-	$('div.posts_area').on('click', '.review .verify_btn', function(){	
+	$('div.posts_area').on('click', '.review .verify_btn', function(){
 		var $this = $(this);
 		var article_id = $this.parent().parent().parent().attr('value');
 		var review = $this.prev().val();
 
 		console.log(article_id);
-		console.log(review);	
+		console.log(review);
 		// if <p> exists before <form></form> delete it
 		//$this.parent().prevAll('p').remove();
 
 		var option = $("#select_postType option:selected").val();
-		
+
 		//console.log("abc"+option);
 		if(option == "Show"){
 			option = "article";
 		}
 
-	            
-	            
+
+
 		$.ajax({
 				url: "includes/form_handlers/article_review_handler.php",
 				type: "POST",
@@ -198,14 +198,14 @@
 		return false;
 	});
 
-			
+
 	// To display reviews
 
 	$('div.posts_area').on('click', '.review .load_reviews', function(){
 		var $this = $(this);
 		console.log("show review buttons clicked");
 		var article_id = $this.parent().parent().parent().attr('value');
-		
+
 		console.log(article_id);
 		var reviewsHtml = "";
 
@@ -213,7 +213,7 @@
 		console.log(value);
 
 		var option = $("#select_postType option:selected").val();
-		
+
 		//console.log("abc"+option);
 		if(option == "Show"){
 			option = "article";
@@ -236,18 +236,51 @@
 		            		 reviewsHtml += "<div class = 'box'>";
 				             reviewsHtml += "<p class = 'post_tags'> <span class = 'labels'>Review </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].review + "</p>";
 				             reviewsHtml += "<p class = 'post_tags'><span class = 'labels'> Posted By </span><span class= 'glyphicon  glyphicon-user'></span> " + itemData[i].review_posted_username + "</p>";
-				             reviewsHtml += "</div>"; 
+				             reviewsHtml += "</div>";
 					        //console.log(itemData[i].service_type);
 					    }
 					$('div.posts_area').find('div[value='+article_id+']').find('.put_reviews').empty().append(reviewsHtml);
-					
+
 				}
 		});
 		return false;
 	});
 
-		
-	
+
+	//To Upvote --- when user hits upvote
+	$('div.posts_area').on('click', '.review .upvotes-btn', function(){
+		var $this = $(this);
+		var article_id = $this.parent().parent().parent().attr('value');
+
+		console.log("from upvotes button"+article_id);
+
+		var option = $("#select_postType option:selected").val();
+
+		if(option == "Show"){
+			option = "article";
+		}
+
+
+
+		$.ajax({
+				url: "includes/form_handlers/upvotes_handler.php",
+				type: "POST",
+				data: "post_type="+option+
+				      "&article_id="+article_id,
+				cache: false,
+
+				success: function(returnedData) {
+
+					console.log(returnedData);
+					//location.reload();
+
+				}
+		});
+		return false;
+	});
+
+
+
 
 
 
