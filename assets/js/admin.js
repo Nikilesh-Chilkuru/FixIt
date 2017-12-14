@@ -347,7 +347,7 @@
 				success: function(returnedData) {
 
 					console.log(returnedData);
-					//location.reload();
+					location.reload();
 
 				}
 		});

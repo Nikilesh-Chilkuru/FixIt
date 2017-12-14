@@ -1,5 +1,5 @@
-<?php 
-//require 'config/config.php'; //connect to database 
+<?php
+//require 'config/config.php'; //connect to database
 require 'header.php';
 require 'includes/form_handlers/home_handler.php';
 require 'includes/service/user.php';
@@ -8,7 +8,7 @@ require 'includes/service/user.php';
 
 
 ?>
-  
+
 <style type="text/css">
 	.checkbox{
 		/*float: inline-start;*/
@@ -16,7 +16,7 @@ require 'includes/service/user.php';
 	}
 </style>
 
-	<div class="container text-center">    
+	<div class="container text-center">
 	  	<div class="row">
 	    	<div class="col-sm-3 scrolldiv">
 	      		<div class="box" >
@@ -31,16 +31,16 @@ require 'includes/service/user.php';
 	            		<option value="advertisement">Advertisement</option>
 	        			</select>
                	  </div>
-			   		
+
 	  	  		</div>
-	      
+
 	    	</div>
 
 
 
 	    	<!-- Modal : for posting something-->
 	    	<div class="col-sm-7">
-	    		
+
 	    	   <form action="includes/form_handlers/search_handler.php" class="navbar-form" role="search">
                     <div class="form-group input-group">
                         <input type="search" id="searchInput" class="form-control" placeholder="Search..">
@@ -51,9 +51,9 @@ require 'includes/service/user.php';
                           </button>
                         </span>
                     </div>
-                    
 
-                    
+
+
                </form>
 
 	    		<div class="posts_area"></div>
@@ -69,32 +69,29 @@ require 'includes/service/user.php';
 	    	<div class='box'>
 	    		<h4> Filter By</h4>
 
-	    		    <div class="checkbox">
-					 <label><input type="checkbox" value="">Date_Posted</label>
-					</div>
-					<div class="checkbox">
-					  <label><input type="checkbox" value="">Reviews</label>
-					</div>
-					<div class="checkbox ">
-					  <label><input type="checkbox" value="" disabled>Upvotes</label>
-					</div>
-					<div class="checkbox ">
-					  <label><input type="checkbox" value="" disabled>Reputation</label>
-					</div>
-						    		
+	    		 <div class="checkbox">
+
+             <form>
+              <input type="radio" name="filter" value="date_posted" checked> Date_Posted<br>
+              <input type="radio" name="filter" value="reviews"> Reviews<br>
+              <input type="radio" name="filter" value="upvotes"> Upvotes<br>
+              <input type="radio" name="filter" value="reputation"> Reputation<br>
+            </form>
+					 </div>
+
 	    	</div>
 	    </div>
 	  </div>
 	</div>
 
 
-	      
 
-	   
-	    
+
+
+
 	 	 </div>
 	</div>
 
-	
+
 </body>
 </html>
