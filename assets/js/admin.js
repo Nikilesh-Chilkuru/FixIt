@@ -128,6 +128,41 @@
 
 			//
 
+       // Load Queries
+			function load_queries_update(){
+
+				console.log("function called")
+				$.ajax({
+					url: "includes/form_handlers/load_queries_handler.php",
+								type: "GET",
+
+								success : function(data) {
+									var itemData = $.parseJSON(data);
+									var postsHtml = "";
+									console.log(itemData);
+
+
+									for(var i=0; i < itemData.length; i++) {
+										 postsHtml += "<div class = 'box' value = '"+ itemData[i].query_id+"'>";
+										 postsHtml += "<p class = 'post_tags'> <span class = 'labels'>User Name </span><span class= 'glyphicon  glyphicon-user'></span> " + itemData[i].posted_user + "</p>";
+										 postsHtml += "<p class = 'post_tags'><span class = 'labels'> Query Title</span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].query_title + "</p>";
+										 postsHtml += "<p class = 'post_tags'><span class = 'labels'> Query</span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].query + "</p>";
+										  postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Contact Email </span>  <span class= 'glyphicon  glyphicon-envelope'></span>  " + itemData[i].contact_email + "</p>";
+										 postsHtml += "<div class = 'review'>";
+										 postsHtml += "<form action='#' method='POST'>"+
+													"<button type='button' class='btn btn-warning delete-btn' style='display:inline-block; margin-right:20px; margin-bottom : 10px;'>Delete Query</button>"+
+													"</form>";
+										 postsHtml += "</div>";
+										 postsHtml += "</div>";
+									//console.log(itemData[i].service_type);
+							}
+									 $('.posts_area').empty().append(postsHtml);
+									 }
+
+				});
+
+			}
+
 		$("select").change(function(){
 	        $(this).find("option:selected").each(function(){
 	            var optionValue = $(this).attr("value");
@@ -143,6 +178,10 @@
 	            	load_users_update();
 
 	            }
+							else if(optionValue == "query"){
+								console.log("query selected");
+	            	load_queries_update();
+							}
 	        });
 	    }).change();
 
@@ -282,6 +321,40 @@
 
 
 
+	// To delete a post | user | query by admin
+
+	$('div.posts_area').on('click', '.review .delete-btn', function(){
+		var $this = $(this);
+		var id = $this.parent().parent().parent().attr('value');
+
+
+		var option = $("#select_postType option:selected").val();
+
+		if(option == "See"){
+			option = "article";
+		}
+
+
+		console.log( " id " + id);
+		console.log( " option" + option);
+		$.ajax({
+				url: "includes/form_handlers/delete_entity_handler.php",
+				type: "POST",
+				data: "post_type="+option+
+							"&id="+id,
+				cache: false,
+
+				success: function(returnedData) {
+
+					console.log(returnedData);
+					//location.reload();
+
+				}
+		});
+		//console.log("hey anvesh baby");
+		return false;
+
+	});
 
 
 
