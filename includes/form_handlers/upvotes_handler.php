@@ -5,6 +5,7 @@
 
 	$article_id = strip_tags($_REQUEST['article_id']);
 	$post_type = strip_tags($_REQUEST['post_type']);
+	
 
     if($post_type == "article"){
       $get_article = mysqli_query($con, "SELECT * FROM article WHERE article_id='$article_id' ");

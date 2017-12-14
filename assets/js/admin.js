@@ -248,6 +248,39 @@
 	});
 
 
+	//To Upvote --- when user hits upvote
+	$('div.posts_area').on('click', '.review .upvotes-btn', function(){
+		var $this = $(this);
+		var article_id = $this.parent().parent().parent().attr('value');
+
+		console.log("from upvotes button"+article_id);
+
+		var option = $("#select_postType option:selected").val();
+
+		if(option == "See"){
+			option = "article";
+		}
+
+
+
+		$.ajax({
+				url: "includes/form_handlers/upvotes_handler.php",
+				type: "POST",
+				data: "post_type="+option+
+							"&article_id="+article_id,
+				cache: false,
+
+				success: function(returnedData) {
+
+					console.log(returnedData);
+					location.reload();
+
+				}
+		});
+		return false;
+	});
+
+
 
 
 
