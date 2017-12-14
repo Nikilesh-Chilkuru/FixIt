@@ -1,16 +1,6 @@
 
 		 $(document).ready(function(){
 
-		 	var reviewHtml = "<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
-		            	"<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
-		            	"<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
-									"<span id = 'number_upvotes' style = 'margin-left : -15px; margin-right : 10px;'>(num) </span>"+
-		            	"<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
-		            	"</form><div class = 'put_reviews'></div>";
-
-		            	console.log(reviewHtml);
-
-
 			load_articles_update();
 
 			function load_articles_update(){
@@ -31,9 +21,24 @@
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>";
 				          	 postsHtml += "<div class = 'review'>";
-				          	 postsHtml  += reviewHtml;
+										 postsHtml +=
+
+										 "<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
+							 		            	"<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
+							 		            	"<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
+							 									"<span id = 'number_upvotes' style = 'margin-left : -15px; margin-right : 10px;'>(" + itemData[i].reputation+ ") </span>"+
+							 		            	"<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
+							 		            	"</form><div class = 'put_reviews'></div>";
+				          	 //postsHtml  += reviewHtml;
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
+										 //element = document.getElementById(number_upvotes);
+
+										 //$('div.posts_area').on('click', '.review .load_reviews', function(){
+										 console.log("itemData[i].reputation" + itemData[i].reputation);
+										 //$('#number_upvotes').empty().append("( "+ itemData[i].reputation + ")");
+
+
 					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
@@ -67,7 +72,14 @@
 				          	 postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Contact Email </span>  <span class= 'glyphicon  glyphicon-envelope'></span>  " + itemData[i].contact_email + "</p>";
 				          	 postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Contact Phone </span>  <span class= 'glyphicon  glyphicon-phone'></span>  " + itemData[i].contact_phone + "</p>";
 				          	 postsHtml += "<div class = 'review'>";
-				          	 postsHtml += reviewHtml;
+										 postsHtml +=
+
+										"<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
+															 "<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
+															 "<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
+															 "<span id = 'number_upvotes' style = 'margin-left : -15px; margin-right : 10px;'>(" + itemData[i].reputation+ ") </span>"+
+															 "<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
+															 "</form><div class = 'put_reviews'></div>";
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
 					        //console.log(itemData[i].service_type);
@@ -132,6 +144,9 @@
 			option = "article";
 			search_articles_update(search_key);
 		}
+		else{
+			search_ads_update(search_key);
+		}
 
 		console.log(option);
 
@@ -164,7 +179,14 @@
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>";
 				          	 postsHtml += "<div class = 'review'>";
-				          	 postsHtml  += reviewHtml;
+										 postsHtml +=
+
+										"<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
+															 "<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
+															 "<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
+															 "<span id = 'number_upvotes' style = 'margin-left : -15px; margin-right : 10px;'>(" + itemData[i].reputation+ ") </span>"+
+															 "<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
+															 "</form><div class = 'put_reviews'></div>";
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
 					        //console.log(itemData[i].service_type);
@@ -178,6 +200,49 @@
 	}
 
 
+
+	// To search ades
+	function search_ads_update(search_key){
+
+			 console.log("search_key" + search_key)
+			 $.ajax({
+				 url: "includes/form_handlers/load_ads_update_handler.php",
+							 type: "GET",
+
+							 success : function(data) {
+								 var itemData = $.parseJSON(data);
+								 var postsHtml = "";
+								 //console.log(itemData);
+
+								 //var search_key = search_key;
+								 for(var i=0; i < itemData.length; i++) {
+
+									 if(((itemData[i].ad_type).toLowerCase().indexOf(search_key) != -1 )|| ((itemData[i].ad_header).toLowerCase().indexOf(search_key) != -1 ) ){
+										postsHtml += "<div class = 'box' value = '"+ itemData[i].ad_id+"'>";
+										postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Service Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].ad_type + "</p>";
+										postsHtml += "<p class = 'post_tags'><span class = 'labels'> Service Title </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].ad_header + "</p>";
+										postsHtml += "<p class = 'post_tags'> <span class = 'labels'> Content  </span> <span class= 'glyphicon  glyphicon-file'></span> " + itemData[i].content + "</p>";
+										postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Posted By </span>  <span class= 'glyphicon  glyphicon-user'></span>  " + itemData[i].posted_user + "</p>";
+										postsHtml += "<div class = 'review'>";
+										postsHtml +=
+
+									 "<form action='includes/form_handlers/article_review_handler.php' method='POST'><input type='text' class='verify_input' placeholder='Write a Review...' value = '' required>"+
+															"<button type='submit' class='btn btn-success verify_btn' style='display:inline-block'>Submit</button><br>"+
+															"<button type='button' class='btn btn-danger upvotes-btn' style='display:inline-block; margin-right:20px;'>Upvote</button>"+
+															"<span id = 'number_upvotes' style = 'margin-left : -15px; margin-right : 10px;'>(" + itemData[i].reputation+ ") </span>"+
+															"<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
+															"</form><div class = 'put_reviews'></div>";
+										postsHtml += "</div>";
+										postsHtml += "</div>";
+								 //console.log(itemData[i].service_type);
+							 }
+						 }
+									$('.posts_area').empty().append(postsHtml);
+									}
+
+			 });
+
+ }
 
 
 	//To post a review
