@@ -29,17 +29,9 @@
 							 									"<span id = 'number_upvotes' style = 'margin-left : -15px; margin-right : 10px;'>(" + itemData[i].reputation+ ") </span>"+
 							 		            	"<button type='button' class='btn btn-primary load_reviews' style='display:inline-block'>Show Reviews</button>"+
 							 		            	"</form><div class = 'put_reviews'></div>";
-				          	 //postsHtml  += reviewHtml;
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
-										 //element = document.getElementById(number_upvotes);
 
-										 //$('div.posts_area').on('click', '.review .load_reviews', function(){
-										 console.log("itemData[i].reputation" + itemData[i].reputation);
-										 //$('#number_upvotes').empty().append("( "+ itemData[i].reputation + ")");
-
-
-					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
@@ -93,9 +85,6 @@
 
 
 
-          // setInterval('load_posts_update()', 1000); // refresh div after 1 secs
-
-			//
 
 		$("select").change(function(){
 	        $(this).find("option:selected").each(function(){
@@ -112,34 +101,15 @@
 
 
 
-	 //for adding toggle to comment button next to the like button
-	// $('div.posts_area').on('click','.commentdis>button',function(){
-	// 	var $targetElement = $(this).parent().parent().parent().next();
-	// 	$targetElement.toggle('slow');
-	// });
-
-
-	// search results
-
 
 	$('div.search_class').on('click', '.searh_span .search_btn', function(){
 		var $this = $(this);
-		//var article_id = $this.parent().parent().parent().attr('value');
-		//var review = $this.prev().val();
 
-		//console.log(article_id);
-		//console.log(review);
-		// if <p> exists before <form></form> delete it
-		//$this.parent().prevAll('p').remove();
-		console.log($this);
-		console.log($this.parent().prev().val());
 
 		var search_key = $this.parent().prev().val();
-		console.log(search_key);
 
 		var option = $("#select_postType option:selected").val();
 
-		//console.log("abc"+option);
 		if(option == "Show" || option == "article" ){
 			option = "article";
 			search_articles_update(search_key);
@@ -164,13 +134,8 @@
 		            success : function(data) {
 		            	var itemData = $.parseJSON(data);
 		            	var postsHtml = "";
-		            	//console.log(itemData);
-
-		            	//var search_key = search_key;
 		            	for(var i=0; i < itemData.length; i++) {
 
-		            		console.log(((itemData[i].service_title)));
-		            		console.log(((itemData[i].service_type) ));
 
 		            		if(((itemData[i].service_type).toLowerCase().indexOf(search_key) != -1 )|| ((itemData[i].service_title).toLowerCase().indexOf(search_key) != -1 ) ){
 		            		 postsHtml += "<div class = 'box' value = '"+ itemData[i].article_id+"'>";
@@ -189,7 +154,7 @@
 															 "</form><div class = 'put_reviews'></div>";
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
-					        //console.log(itemData[i].service_type);
+
 					      }
 					    }
 		               $('.posts_area').empty().append(postsHtml);
@@ -234,7 +199,6 @@
 															"</form><div class = 'put_reviews'></div>";
 										postsHtml += "</div>";
 										postsHtml += "</div>";
-								 //console.log(itemData[i].service_type);
 							 }
 						 }
 									$('.posts_area').empty().append(postsHtml);
@@ -250,15 +214,8 @@
 		var $this = $(this);
 		var article_id = $this.parent().parent().parent().attr('value');
 		var review = $this.prev().val();
-
-		console.log(article_id);
-		console.log(review);
-		// if <p> exists before <form></form> delete it
-		//$this.parent().prevAll('p').remove();
-
 		var option = $("#select_postType option:selected").val();
 
-		//console.log("abc"+option);
 		if(option == "Show"){
 			option = "article";
 		}
@@ -274,15 +231,6 @@
 				cache: false,
 
 				success: function(returnedData) {
-					// var error = "Please enter the content!";
-					// if(returnedData.indexOf(error) >=0){
-					// 	$this.parent().before(returnedData);
-					// }else{
-					// 	$this.prev().find('input').val("");
-					// 	$this.parent().parent().next().empty();
-					// 	$this.parent().parent().next().append(returnedData);
-					// }
-					console.log(returnedData);
 					location.reload();
 
 				}
@@ -316,8 +264,6 @@
 				cache: false,
 
 				success: function(returnedData) {
-
-					console.log(returnedData);
 					location.reload();
 
 				}
@@ -342,12 +288,9 @@
 
 		var option = $("#select_postType option:selected").val();
 
-		//console.log("abc"+option);
 		if(option == "Show"){
 			option = "article";
 		}
-		// if <p> exists before <form></form> delete it
-		//$this.parent().prevAll('p').remove();
 		$.ajax({
 				url: "includes/form_handlers/load_reviews.php",
 				type: "POST",
@@ -358,14 +301,12 @@
 				success: function(returnedData) {
 					var itemData = $.parseJSON(returnedData);
 		            var reviewsHtml = "";
-		            // console.log(itemData);
 
 		            for(var i=0; i < itemData.length; i++) {
 		            		 reviewsHtml += "<div class = 'box'>";
 				             reviewsHtml += "<p class = 'post_tags'> <span class = 'labels'>Review </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].review + "</p>";
 				             reviewsHtml += "<p class = 'post_tags'><span class = 'labels'> Posted By </span><span class= 'glyphicon  glyphicon-user'></span> " + itemData[i].review_posted_username + "</p>";
 				             reviewsHtml += "</div>";
-					        //console.log(itemData[i].service_type);
 					    }
 					$('div.posts_area').find('div[value='+article_id+']').find('.put_reviews').empty().append(reviewsHtml);
 
@@ -373,9 +314,6 @@
 		});
 		return false;
 	});
-
-
-
 
 
 

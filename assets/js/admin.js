@@ -15,7 +15,7 @@
 		            success : function(data) {
 		            	var itemData = $.parseJSON(data);
 		            	var postsHtml = "";
-		            	//console.log(itemData);
+
 		            	for(var i=0; i < itemData.length; i++) {
 		            		 postsHtml += "<div class = 'box' value = '"+ itemData[i].article_id+"'>";
 				             postsHtml += "<p class = 'post_tags'> <span class = 'labels'>Service Type </span><span class= 'glyphicon  glyphicon-wrench'></span> " + itemData[i].service_type + "</p>";
@@ -33,7 +33,7 @@
 
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
-					        //console.log(itemData[i].service_type);
+
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
@@ -76,7 +76,6 @@
 
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
-					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
@@ -114,7 +113,6 @@
 				 		            	"</form><div class = 'put_reviews'></div>";
 				          	 postsHtml += "</div>";
 				          	 postsHtml += "</div>";
-					        //console.log(itemData[i].service_type);
 					    }
 		               $('.posts_area').empty().append(postsHtml);
 		               }
@@ -124,9 +122,6 @@
 			}
 
 
-          // setInterval('load_posts_update()', 1000); // refresh div after 1 secs
-
-			//
 
        // Load Queries
 			function load_queries_update(){
@@ -154,7 +149,6 @@
 													"</form>";
 										 postsHtml += "</div>";
 										 postsHtml += "</div>";
-									//console.log(itemData[i].service_type);
 							}
 									 $('.posts_area').empty().append(postsHtml);
 									 }
@@ -198,15 +192,8 @@
 		var $this = $(this);
 		var article_id = $this.parent().parent().parent().attr('value');
 		var review = $this.prev().val();
-
-		console.log(article_id);
-		console.log(review);
-		// if <p> exists before <form></form> delete it
-		//$this.parent().prevAll('p').remove();
-
 		var option = $("#select_postType option:selected").val();
 
-		//console.log("abc"+option);
 		if(option == "Show"){
 			option = "article";
 		}
@@ -222,15 +209,6 @@
 				cache: false,
 
 				success: function(returnedData) {
-					// var error = "Please enter the content!";
-					// if(returnedData.indexOf(error) >=0){
-					// 	$this.parent().before(returnedData);
-					// }else{
-					// 	$this.prev().find('input').val("");
-					// 	$this.parent().parent().next().empty();
-					// 	$this.parent().parent().next().append(returnedData);
-					// }
-					console.log(returnedData);
 					location.reload();
 
 				}
@@ -254,12 +232,10 @@
 
 		var option = $("#select_postType option:selected").val();
 
-		//console.log("abc"+option);
 		if(option == "Show"){
 			option = "article";
 		}
-		// if <p> exists before <form></form> delete it
-		//$this.parent().prevAll('p').remove();
+
 		$.ajax({
 				url: "includes/form_handlers/load_reviews.php",
 				type: "POST",
@@ -270,14 +246,12 @@
 				success: function(returnedData) {
 					var itemData = $.parseJSON(returnedData);
 		            var reviewsHtml = "";
-		            // console.log(itemData);
 
 		            for(var i=0; i < itemData.length; i++) {
 		            		 reviewsHtml += "<div class = 'box'>";
 				             reviewsHtml += "<p class = 'post_tags'> <span class = 'labels'>Review </span><span class= 'glyphicon  glyphicon-tag'></span> " + itemData[i].review + "</p>";
 				             reviewsHtml += "<p class = 'post_tags'><span class = 'labels'> Posted By </span><span class= 'glyphicon  glyphicon-user'></span> " + itemData[i].review_posted_username + "</p>";
 				             reviewsHtml += "</div>";
-					        //console.log(itemData[i].service_type);
 					    }
 					$('div.posts_area').find('div[value='+article_id+']').find('.put_reviews').empty().append(reviewsHtml);
 
@@ -291,9 +265,6 @@
 	$('div.posts_area').on('click', '.review .upvotes-btn', function(){
 		var $this = $(this);
 		var article_id = $this.parent().parent().parent().attr('value');
-
-		console.log("from upvotes button"+article_id);
-
 		var option = $("#select_postType option:selected").val();
 
 		if(option == "See"){
@@ -310,8 +281,6 @@
 				cache: false,
 
 				success: function(returnedData) {
-
-					console.log(returnedData);
 					location.reload();
 
 				}
@@ -345,13 +314,10 @@
 				cache: false,
 
 				success: function(returnedData) {
-
-					console.log(returnedData);
 					location.reload();
 
 				}
 		});
-		//console.log("hey anvesh baby");
 		return false;
 
 	});

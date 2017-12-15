@@ -14,6 +14,12 @@ require 'includes/service/user.php';
 		/*float: inline-start;*/
 		margin-right : 100%;
 	}
+
+	.checkbox input {
+		display: inline;
+    margin-right: 5px;
+    float: left
+	}
 </style>
 
 	<div class="container text-center">
@@ -64,23 +70,6 @@ require 'includes/service/user.php';
 
 
 
-
-	    	<div class="col-sm-2">
-	    	<div class='box'>
-	    		<h4> Filter By</h4>
-
-	    		 <div class="checkbox">
-
-             <form>
-              <input type="radio" name="filter" value="date_posted" checked> Date_Posted<br>
-              <input type="radio" name="filter" value="reviews"> Reviews<br>
-              <input type="radio" name="filter" value="upvotes"> Upvotes<br>
-              <input type="radio" name="filter" value="reputation"> Reputation<br>
-            </form>
-					 </div>
-
-	    	</div>
-	    </div>
 	  </div>
 	</div>
 
@@ -91,7 +80,6 @@ require 'includes/service/user.php';
 
 	 	 </div>
 	</div>
-
 
 </body>
 </html>

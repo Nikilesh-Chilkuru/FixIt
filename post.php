@@ -73,18 +73,14 @@ require 'includes/service/user.php';
 	            </div>
 	          </div>
 
-	          
+
 
 	        </div>
 
-					
+
 
 	      </div>
 	    </div>
-
-	      <!-- <div class="posts_area"></div>
-		  <img id="loadingIcon" src="assets/images/icons/loading.gif">
-	    </div> -->
 
 	  </div>
 	</div>

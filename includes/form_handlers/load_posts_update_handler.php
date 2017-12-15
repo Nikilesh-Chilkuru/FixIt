@@ -1,10 +1,8 @@
-<?php 
+<?php
 	//coding here
 	require '../../config/config.php';
 	require '../service/article.php';
 
-
-	
 	
 		$getArticles_query = mysqli_query($con, "SELECT * FROM  article");
 	    $output = array();
@@ -14,5 +12,5 @@
 	}
 
 	echo json_encode($output);
-		
+
 ?>
